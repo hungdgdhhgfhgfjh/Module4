@@ -1,0 +1,65 @@
+<div *ngIf="isShowform == true" class="row">
+    <div style="display:flex" class="col-12">
+        <div class="col-4"></div>
+        <div class="col-4">
+              <!-- <p>bước 7 khi làm fom coppy   [formGroup]="profileForm"
+    (ngSubmit)="handleSubmit()"  </p> -->
+            <form   [formGroup]="profileForm"
+            (ngSubmit)="handleSubmit()" action="" method="POST" role="form">
+                <div class="form-group">
+                  <label for="exampleInputEmail1">Name</label>
+                  <input  id="name"
+                  formControlName="name"  name="name" type="text" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                </div>
+
+                <div class="form-group">
+                  <label for="exampleInputPassword1">Age</label>
+                  <input id="age"
+                  formControlName="age" name="age" type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                </div>
+
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Class</label>
+                    <input id="class"
+                    formControlName="class" name="class" type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+
+                  <div class="form-group">
+                    <label for="exampleInputPassword1">Address</label>
+                    <input id="address"
+                    formControlName ="address" name="address" type="text" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                  </div>
+                <button [disabled]="!profileForm.valid"  type="submit" class="btn btn-primary w-50">Submit</button>
+                <button on-click="back()" class="btn btn-warning w-50">Đóng lại</button>
+              </form>
+        </div>
+            </div>
+</div>
+<h1 *ngIf="isShowform == false" class="text-center text-warning">Học Sinh</h1>
+<button *ngIf="isShowform == false" class="btn btn-info" on-click="addNew()" >thêm mới</button>
+<table *ngIf="isShowform == false" class="table">
+    <thead>
+      <tr>
+        <th scope="col">STT</th>
+        <td scope="col">Name</td>
+        <td scope="col">Age</td>
+        <td scope="col">Class</td>
+        <td scope="col">Address</td>
+        <td scope="col">thay đổi</td>
+        <td  scope="col">delete</td>
+      </tr>
+    </thead>
+    <tbody><!-- phải có  thuộc tính thì mới chuyền input vào được;thuộc tính là một compoment có cái hộp selector và đc truyền lớp hiện tại  -->
+      <tr *ngFor="let Student of students ,let i = index "
+      app-student
+      [input_pink]="pink"
+      [input_local]="'numberPhone'"
+      [input_user]="user"
+      [input_title]="title"
+      [input_Student] = "Student"
+      [input_i] ="i"
+      (handleDelete)="delete($event)"
+      >
+      </tr>
+    </tbody>
+  </table>

@@ -1,0 +1,28 @@
+<form  [formGroup]="EditStaffForm" (ngSubmit)="onSubmit()" *ngIf="EditStaffForm">
+    <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" class="form-control" name="name" id="name" placeholder="Name" formControlName="name">
+
+        <!-- Show validate --> 
+        <p 
+        *ngIf="!EditStaffForm.controls['name']?.valid && (EditStaffForm.controls['name']?.dirty
+        ||EditStaffForm.controls['name']?.touched)"
+        class="help-block text-danger">Name is required</p>
+    </div>
+    <div class="form-group">
+        <label for="price">Position</label>
+        <input type="text" class="form-control" name="position" id="position" placeholder="position" formControlName="position">
+
+        <!-- Show validate -->
+        <p 
+        *ngIf="!EditStaffForm.controls['position']?.valid && (EditStaffForm.controls['position']?.dirty
+        ||EditStaffForm.controls['position']?.touched)"
+        class="help-block text-danger">Position is required</p>
+
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="!EditStaffForm.valid">Submit</button>
+    </div>
+    
+  </form>

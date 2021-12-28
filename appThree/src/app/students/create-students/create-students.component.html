@@ -1,0 +1,62 @@
+<div *ngIf="isShowFormCreate == true" class="row">
+  <div style="display:flex" class="col-12">
+    <div class="col-4"></div>
+    <div class="col-4">
+      <!-- <p>bước 7 khi làm fom coppy   [formGroup]="profileForm"
+    (ngSubmit)="handleSubmit()"  </p> -->
+      <form [formGroup]="profileForm" (ngSubmit)="handleSubmit()" action="" method="POST" role="form" action=""
+        method="POST" role="form">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Name</label>
+          <input id="name" formControlName="name" name="name" type="text" class="form-control"
+            aria-describedby="emailHelp" placeholder="Enter email">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Age</label>
+          <input id="age" formControlName="age" name="age" type="text" class="form-control" placeholder="age">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">Address</label>
+          <input id="address" formControlName="address" name="address" type="text" class="form-control"
+            placeholder="address">
+        </div>
+
+        <div class="form-group">
+          <label for="exampleInputPassword1">gender</label>
+          <input id="gender" formControlName="gender" name="gender" type="text" class="form-control"
+            placeholder="gender">
+        </div>
+        <button [disabled]="!profileForm.valid" type="submit" class="btn btn-primary w-50">Submit</button>
+        <button class="btn btn-warning w-50">Đóng lại</button>
+      </form>
+    </div>
+  </div>
+</div>
+<div *ngIf="isShowFormCreate == false" class="col-12">
+  <h1 class="text-center text-info">Student</h1>
+  <a class="btn btn-info" on-click="add()" [routerLink]="['create']">thêm</a>
+  <table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Address</th>
+        <th scope="col">Gender</th>
+        <th scope="col">delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- khi muốn thêm input và output thì đặt component con trở thành thuộc tính  -->
+    <tbody>
+      <!-- [input_student] = "" đây là cách tryền biến vào   -->
+      <!-- bước 2 output : (tên hàm) = "hàm cha(i)"    -->
+      <tr *ngFor="let student of students ,let i = index " app-student [input_students]="students" [input_i]="i"
+        [input_student]="student" (handleDelete)="delete(i)">
+
+      </tr>
+    </tbody>
+  </table>
+</div>

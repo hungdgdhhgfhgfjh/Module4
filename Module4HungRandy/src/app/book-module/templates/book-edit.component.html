@@ -1,0 +1,28 @@
+<form [formGroup]="EditBookForm" (ngSubmit)="onSubmit()" *ngIf="EditBookForm">
+    <div class="form-group">
+        <label for="writer_name">writer_name</label>
+        <input type="text" class="form-control" id="writer_name" placeholder="writer_name" formControlName="writer_name">
+
+        <!-- Show validate -->
+        <p 
+        *ngIf="!EditBookForm.controls['writer_name']?.valid && (EditBookForm.controls['writer_name']?.dirty
+        ||EditBookForm.controls['writer_name']?.touched)"
+        class="help-block text-danger">writer_name is required</p>
+    </div>
+    <div class="form-group">
+        <label for="price">book_name</label>
+        <input type="text" class="form-control" id="book_name" placeholder="book_name" formControlName="book_name">
+
+        <!-- Show validate -->
+        <p 
+        *ngIf="!EditBookForm.controls['book_name']?.valid && (EditBookForm.controls['book_name']?.dirty
+        ||EditBookForm.controls['book_name']?.touched)"
+        class="help-block text-danger">book_name is required</p>
+
+    </div>
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-primary" [disabled]="!EditBookForm.valid">Submit</button>
+    </div>
+    
+  </form><p>book-add works!</p>

@@ -1,0 +1,24 @@
+<h1 class="text-cent">Sách</h1>
+<b>Có số lượng sách là {{count}}</b>
+<hr>
+<a class="btn btn-info " [routerLink]="['/book/add']">thêm</a>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Tên sách</th>
+        <th scope="col">Tên tác giả</th>
+        <th>sữa</th>
+        <th>xóa</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let book of books; let i = index;">
+        <th scope="row">{{i+1}}</th>
+       <td><a [routerLink]="['/book/show/',book.id]">{{book.book_name}}</a></td>
+       <td>{{book.writer_name}}</td>
+       <td><a class="btn btn-info" [routerLink]="['/book/edit/',book.id]">sữa</a></td>
+       <td><a class='btn btn-danger' [routerLink]="['/book/delete/',book.id]">xóa</a></td>
+      </tr>
+    </tbody>
+</table>

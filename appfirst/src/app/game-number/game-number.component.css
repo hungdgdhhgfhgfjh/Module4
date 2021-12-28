@@ -1,0 +1,9 @@
+.wrapper {
+	display: flex;
+	flex-direction: inherit;
+	flex-wrap: wrap;
+}
+.item-number {
+	margin: 5px;
+	width: auto;
+}

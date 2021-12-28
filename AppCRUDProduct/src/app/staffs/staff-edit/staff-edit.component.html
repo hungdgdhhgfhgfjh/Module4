@@ -1,0 +1,47 @@
+<div class="row">
+    <div style="display:flex" class="col-12">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <!-- <p>bước 7 khi làm fom coppy   [formGroup]="profileForm"
+      (ngSubmit)="handleSubmit()"  </p> -->
+            <form [formGroup]="StaffForm" (ngSubmit)="onSubmit()" action="" method="POST" role="form" action=""
+                method="POST" role="form">
+                <div class="form-group">
+                    <label for="exampleInputEmail1">Name</label>
+                    <input id="name" formControlName="name" name="name" type="text" class="form-control"
+                        aria-describedby="emailHelp" placeholder="Enter email">
+                        <p 
+                        *ngIf="!StaffForm.controls['name']?.valid && (StaffForm.controls['name']?.dirty
+                        ||StaffForm.controls['name']?.touched)"
+                        class="alert-danger">bạn chưa nhập tên</p>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Age</label>
+                    <input id="age" formControlName="age" name="age" type="text" class="form-control" placeholder="age">
+                    <p 
+                    *ngIf="!StaffForm.controls['age']?.valid && (StaffForm.controls['age']?.dirty
+                    ||StaffForm.controls['age']?.touched)"
+                    class="alert-danger">bạn chưa nhập tuổi</p>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">Position</label>
+                    <input id="position" formControlName="position" name="position" type="text" class="form-control" placeholder="age">
+                    <p 
+                    *ngIf="!StaffForm.controls['position']?.valid && (StaffForm.controls['position']?.dirty
+                    ||StaffForm.controls['position']?.touched)"
+                    class="alert-danger">bạn chưa nhập chức vụ</p>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputPassword1">gender</label>
+                    <input id="gender" formControlName="gender" name="gender" type="text" class="form-control" placeholder="age">
+                    <p 
+                    *ngIf="!StaffForm.controls['gender']?.valid && (StaffForm.controls['gender']?.dirty
+                    ||StaffForm.controls['gender']?.touched)"
+                    class="alert-danger">bạn chưa nhập giới tính</p>
+                </div>
+                <button [disabled]="!StaffForm.valid" type="submit" class="btn btn-primary w-50">Submit</button>
+                <button class="btn btn-warning w-50">Đóng lại</button>
+            </form>
+        </div>
+    </div>
+</div>

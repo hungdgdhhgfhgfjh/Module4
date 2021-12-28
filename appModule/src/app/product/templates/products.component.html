@@ -1,0 +1,18 @@
+
+<div class="bs-example mb-5" data-example-id="nav-pills-with-dropdown">
+    <ul class="nav nav-pills">
+        <li role="presentation" class="active"><a href="#">Home</a></li>
+        <li role="presentation"><a [routerLink]="['/products']">Products</a></li>
+        <li role="presentation"><a [routerLink]="['/admin/products']">Admin Products</a></li>
+    </ul>
+</div>
+
+<div class="row">
+    <div class="col-lg-3 mb-3" *ngFor="let product of products; let i = index;">
+        <div class="panel panel-default">
+            <div class="panel-heading">{{ product.name }}</div>
+            <div class="panel-body">Price: {{ product.price }}</div>
+            <div class="panel-footer"><a class="btn btn-info" [routerLink]="['/products/show',i]">View</a></div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,79 @@
+<p>student2 works!</p>
+<div class="row">
+    <div class="col-12" style="display:flex">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <!-- <p>bước 5 khi làm fom coppy   [formGroup]="profileForm"
+    (ngSubmit)="handleSubmit()"  </p> -->
+            <form
+            [formGroup]="profileForm"
+    (ngSubmit)="handleSubmit()" 
+             *ngIf="ishowform == true" action="" method="POST" role="form">
+
+                <legend>Thêm mới sinh viên</legend>
+
+                <div class="form-group">
+                    <label for="">name</label>
+                    <!-- <p>bước 6 id="name"
+                    formControlName="name" name="name" </p> -->
+                    <input  id="name"
+                    formControlName="name" name="name"
+                    class="form-control" type="text" class="form-control" placeholder="">
+                </div>
+                <div class="form-group">
+                    <label for="">Age</label>
+                    <input  formControlName="age"
+                    name="age" type="text" class="form-control" id="" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="">Phone</label>
+                    <input    formControlName="phone" 
+                    name="phone" type="text" class="form-control" id="" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="">birthday</label>
+                    <input  formControlName="birthday" 
+                    name="birthday" type="text" class="form-control" id="" placeholder="">
+                </div>
+
+                <div class="form-group">
+                    <label for="">gender</label>
+                    <input formControlName="gender" 
+                    name="gender" type="text" class="form-control" id="" placeholder="">
+                </div>
+                     <!-- <p>bước 7 [disabled]="!profileForm.valid" </p> -->
+                <button [disabled]="!profileForm.valid" type="submit" class="btn btn-primary">Submit</button>
+                <button class="btn btn-warning" on-click="back()" type="button">đóng lại</button>
+            </form>
+        </div>
+    </div>
+</div>
+<br>
+<span [ngSwitch]="ishowform">
+    <button *ngSwitchCase="false" on-click="addNew()" type="button" class="btn btn-success">Thêm mới</button>
+
+</span>
+<table *ngIf="ishowform == false" class="table table-hover">
+    <thead>
+        <tr>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Phone</th>
+            <th>Birthday</th>
+            <th>Gender</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngIf="students.length == 0">
+            <td colspan="4">Không có dữ liệu</td>
+        </tr>
+
+        <tr *ngFor="let student of students; let i = index" app-students [input_student]="student" [input_i]="i"
+            (handleDeleteItem)="deleteItem($event)">
+        </tr>
+    </tbody>
+</table>

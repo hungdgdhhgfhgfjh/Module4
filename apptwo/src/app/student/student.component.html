@@ -1,0 +1,9 @@
+<th scope="row">{{i+1}}</th>
+<td>{{Student.name}}</td>
+<td>{{Student.age}}</td>
+<td>{{Student.class}}</td>
+<td>{{Student.address}}</td>
+<td><a [routerLink]="['/update',i]" class="btn btn-info"> thay đổi</a></td>
+<td><button on-click="onleDelete(i)" class="btn btn-danger"> xóa</button></td>
+
+<!-- <p>khi nghi áo mai đào nở vang bên nương {{local}}</p> -->

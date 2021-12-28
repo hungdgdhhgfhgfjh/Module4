@@ -1,0 +1,22 @@
+<p *ngIf="checkAnser == true" class="alert-success">chúc mừng bạn bạn đã đúng</p>
+<div class="container">
+    <div class="row">
+        <div class="col-lg-6">
+            <p class="label label-info">Điểm: {{ point }}</p>
+        </div>
+        <div class="col-lg-6">
+            <p class="label label-info">Thời gian: {{ timer }}</p>
+        </div>
+    </div>
+    <div class="wrapper">
+        <div  class="item-number" *ngFor='let number of numbers ;let i = index' >
+            <button on-click="check(number)" 
+            [ngClass]="{
+                'btn-info' : number < x,
+                'btn-dark' : number == number +1
+            }" 
+
+            class="btn btn-success">{{number}}</button>
+        </div>
+    </div>
+</div>

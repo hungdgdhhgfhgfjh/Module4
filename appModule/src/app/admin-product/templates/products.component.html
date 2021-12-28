@@ -1,0 +1,46 @@
+<div class="bs-example mb-5" data-example-id="nav-pills-with-dropdown">
+    <ul class="nav nav-pills">
+        <li role="presentation"><a [routerLink]="['/']">View Website</a></li>
+    </ul>
+</div>
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <div class="row">
+            <div class="col-lg-6">
+                <h3 class="panel-title">Manage products</h3>
+            </div>
+            <div class="col-lg-6">
+                <div class="input-group">
+                    <input #txt type="text" class="form-control" >
+                    <span class="input-group-btn">
+                        <button on-click="search(txt.value)" class="btn btn-default" type="button">Go!</button>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="panel-body">
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Name</th>
+                    <th>Price</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products; let i = index;">
+                    <th scope="row">{{ i+1 }}</th>
+                    <td>{{ product.name }}</td>
+                    <td>{{ product.price }}</td>
+                    <td>
+                        <a class="btn btn-info" [routerLink]="['/product-edit',i]">Edit</a> |
+                        <a class="btn btn-danger" [routerLink]="['/product-delete',i]">Delete</a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

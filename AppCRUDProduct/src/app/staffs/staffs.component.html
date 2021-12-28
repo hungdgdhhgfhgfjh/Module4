@@ -1,0 +1,24 @@
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">age</th>
+        <th scope="col">Position</th>
+        <th scope="col">Gender</th>
+        <th scope="col">Edit</th>
+        <th scope="col">Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor = "let staff of staffs; let i = index;" >
+        <th scope="row">{{i+1}}</th>
+        <td scope="col">{{staff.name}}</td>
+        <td scope="col">{{staff.age}}</td>
+        <td scope="col">{{staff.position}}</td>
+        <td scope="col">{{staff.gender}}</td>
+        <td scope="col"><a class="btn btn-info" [routerLink]="['/staffs-edit',i]">Edit</a></td>
+        <td scope="col"><a class="btn btn-danger" [routerLink]="['/staffs-delete',i]">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>

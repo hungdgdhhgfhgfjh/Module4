@@ -1,0 +1,37 @@
+<div
+  *ngIf="isShowFormCreate== true"
+app-create-students
+[input_students]="students"
+[input_isShowFormCreate]="isShowFormCreate"
+class="row">
+
+</div>
+<h1 class="text-center text-info">Student</h1>
+<a class="btn btn-info" [routerLink]="['create']">thêm</a>
+<table class="table">
+    <thead class="thead-dark">
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Age</th>
+        <th scope="col">Address</th>
+        <th scope="col">Gender</th>
+        <th scope="col">delete</th>
+      </tr>
+    </thead>
+    <tbody><!-- khi muốn thêm input và output thì đặt component con trở thành thuộc tính  -->
+    <tbody><!-- [input_student] = "" đây là cách tryền biến vào   -->
+<!-- bước 2 output : (tên hàm) = "hàm cha(i)"    -->
+      <tr *ngFor="let student of students ,let i = index "
+          app-student 
+          [input_students]="students"
+          [input_i] = "i"
+          [input_student] = "student"
+          [input_plank] = "plank"
+          (handleDelete)="delete(i)"
+      >
+     
+      </tr>
+    </tbody>
+  </table>
+  

@@ -1,0 +1,42 @@
+<h1 class="text-center text-warning">Thêm</h1>
+<div class="row" style="display: flex;">
+    <div class="col-4"></div>
+    <div class="col-4">
+        <form [formGroup]="addBlogForm" (ngSubmit)="onSubmit()">
+            <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Name</label>
+                <input type="text" id="name" placeholder="Name" formControlName="name" name="name" class="form-control"  aria-describedby="emailHelp">
+                <p 
+                *ngIf="!addBlogForm.controls['name']?.valid && (addBlogForm.controls['name']?.dirty
+                ||addBlogForm.controls['name']?.touched)"
+                class="help-block text-danger">Name is required</p>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Des</label>
+                <input type="text" id="des" placeholder="des" formControlName="des" name="des" class="form-control">
+                <p 
+                *ngIf="!addBlogForm.controls['des']?.valid && (addBlogForm.controls['des']?.dirty
+                ||addBlogForm.controls['des']?.touched)"
+                class="help-block text-danger">des is required</p>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Feeling</label>
+                <input type="text" id="feeling" placeholder="feeling" formControlName="feeling" name="feeling" class="form-control">
+                <p 
+                *ngIf="!addBlogForm.controls['feeling']?.valid && (addBlogForm.controls['feeling']?.dirty
+                ||addBlogForm.controls['feeling']?.touched)"
+                class="help-block text-danger">feeling is required</p>
+            </div>
+            <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">status</label>
+                <input type="text" id="status" placeholder="status" formControlName="status" name="status" class="form-control">
+                <p 
+                *ngIf="!addBlogForm.controls['status']?.valid && (addBlogForm.controls['status']?.dirty
+                ||addBlogForm.controls['status']?.touched)"
+                class="help-block text-danger">status is required</p>
+            </div>
+            <button type="submit" [disabled]="!addBlogForm.valid" class="btn btn-primary w-50">Submit</button>
+            <a class="btn btn-warning w-50" [routerLink]="['/blog']">Back</a>
+        </form>
+    </div>
+</div>

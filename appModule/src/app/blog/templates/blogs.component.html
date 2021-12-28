@@ -1,0 +1,26 @@
+<h1 class="text-center text-warning">Blogs</h1>
+<a class="btn btn-primary" [routerLink]="['/blog/add']">thêm</a>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">Name</th>
+        <th scope="col">Des</th>
+        <th scope="col">Feeling</th>
+        <th scope="col">status</th>
+        <th scope="col">Delete</th>
+        <th scope="col">Edit</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let blog of blogs ;let i = index">
+        <th scope="row">{{i+1}}</th>
+        <td scope="col">{{blog.name}}</td>
+        <td scope="col">{{blog.des}}</td>
+        <td scope="col">{{blog.feeling}}</td>
+        <td scope="col">{{blog.status}}</td>
+        <td scope="col"><a class="btn btn-danger" [routerLink]="['/blog/edit',i]">Edit</a></td>
+        <td scope="col"><a class="btn btn-info" [routerLink]="['/blog/delete',i]">Delete</a></td>
+      </tr>
+    </tbody>
+  </table>

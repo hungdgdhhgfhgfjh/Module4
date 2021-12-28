@@ -1,0 +1,13 @@
+<h2>Pet profile</h2>
+<label>
+  Pet name:
+  <input on-keyup="updateName($event)" type="text" [value]="pet.name">
+</label>
+<br >
+<label>
+  Pet image:
+  <input type="url" >
+</label>
+<br >
+<h3>Pet name: {{pet.name}}</h3>
+<img [style]="pet.style" [src]="pet.image" style="max-width: 100%">

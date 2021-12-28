@@ -1,0 +1,28 @@
+<a class="btn btn-info" [routerLink]="['/admin/add']">Add</a>
+<div class="col-lg-6">
+  <div class="input-group">
+      <input #txt type="text" class="form-control" >
+      <span class="input-group-btn">
+          <button on-click="search(txt.value)" class="btn btn-danger" type="button">Go!</button>
+      </span>
+  </div>
+</div>
+<table class="table">
+    <thead>
+      <tr>
+        <th scope="col">#</th>
+        <th scope="col">First</th>
+        <th scope="col">edit</th>
+        <th scope="col">delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let staff of staffs; let i = index;">
+        <td>{{staff.name}}</td>
+        <td>{{staff.position}}</td>
+        <td><a class="btn btn-info" [routerLink]="['/admin/edit/',staff.id]">edit</a></td>
+        <td><a class="btn btn-danger" [routerLink]="['/admin/delete/',staff.id]">delete</a></td>
+      </tr>
+    </tbody>
+  </table>
+  <b>sssssssssssss</b>
